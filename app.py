@@ -1,3 +1,4 @@
+'''
 from flask import Flask, jsonify, request
 from statsmodels.iolib.smpickle import load_pickle
 import numpy as np
@@ -34,6 +35,15 @@ def get_claims():
     result_formatted = np.array([x[-1] for x in list(result.items())])
     predicted_claims = loaded_model.predict(result_formatted)
     return jsonify({"claims_cost": predicted_claims[0]})
+'''
+
+from flask import Flask
+app = Flask(__name__)
+
+@app.route("/")
+def index():
+    return "Hello Medium"
+
 
 
 if __name__ == "__main__":
