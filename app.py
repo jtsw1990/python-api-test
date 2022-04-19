@@ -36,4 +36,5 @@ def get_claims():
     return jsonify({"claims_cost": predicted_claims[0]})
 
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(port=5000, debug=True)
