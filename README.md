@@ -1,6 +1,7 @@
 # python-api-test
 test repo to deploy python api
 
-https://docs.digitalocean.com/tutorials/app-deploy-flask-app/
+Summary
 
-App destroyed on 2022/04/02
+- Try to wrap model in a flask API
+- Use nodejs backend + Express frontend to call flask API into simple app using ML
