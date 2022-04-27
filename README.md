@@ -1,19 +1,42 @@
 # python-api-test
-test repo to deploy python api
+Repository to deploy sample insurance pricing api
 
-[Endpoint](https://insurance-pricing-api.herokuapp.com/)
+- [Endpoint](https://insurance-pricing-api.herokuapp.com/)
+- [Pricing Webapp github](https://github.com/jtsw1990/webapp-pricingengine)
 
-Summary
 
-- Try to wrap model in a flask API
-- Use nodejs backend + Express frontend to call flask API into simple app using ML
+High-level architecture
+- Batch-trained (for now) Python GLM model
+- Flask API wrapper
+- Heroku as a free hosting service (Refer to endpoint) 
+- Will be called by [Pricing webapp](https://github.com/jtsw1990/webapp-pricingengine) using Nodejs/Fetch/Axios
 
+
+# Tools and tech stack
 ## Model
-- Currently using a simple GLM as a placeholder
+- `statsmodel` library to implement a generalised linear model
+- Gamma distribution assumption, log link function
 
-## Framework
-- Flask to wrap around the model
-- Schema defined in app.py, can be improved
+## API
+- `Flask` to wrap around the model
+- Schema defined in app.py (Can be abstracted out)
+- `GET` returns schema
+- `POST` returns following given schema:
+```
+{ 
+    "claims_cost" : $K, 
+    "coefficients" : {
+      "coef1" : K1,
+      "coef2" : K2
+    }  
+}
+```
+
 
 ## Deployment
 - Heroku used as a platform to host the API
+- `Heroku cli` used as git integration frontend is down
+- Steps to update model:
+    - `heroku git add`
+    - `heroku git commit -m <message>`
+    - `heroku git push`
