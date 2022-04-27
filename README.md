@@ -37,6 +37,6 @@ High-level architecture
 - Heroku used as a platform to host the API
 - `Heroku cli` used as git integration frontend is down
 - Steps to update model:
-    - `heroku git add`
-    - `heroku git commit -m <message>`
-    - `heroku git push`
+    - `git add`
+    - `git commit -m <message>`
+    - `git push heroku main`
