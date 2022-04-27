@@ -34,7 +34,11 @@ def get_claims():
         result[key] = record[key]
     result_formatted = np.array([x[-1] for x in list(result.items())])
     predicted_claims = loaded_model.predict(result_formatted)
-    return jsonify({"claims_cost": predicted_claims[0]})
+    coefficients = { x: np.round(y, 3) for (x, y) in loaded_model.params.to_dict().items() }
+    return jsonify({
+        "claims_cost": predicted_claims[0],
+        "coefficients": coefficients
+        })
 
 
 
